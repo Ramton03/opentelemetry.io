@@ -8,7 +8,7 @@ cSpell:ignore: Guten
 
 **Traces** আমাদের যখন কোনো অনুরোধ অ্যাপ্লিকেশনে পাঠানো হয় তখন কী ঘটে তার সার্বিক চিত্র দেখায়। আপনার অ্যাপ্লিকেশন যদি একক ডাটাবেসের monolith অথবা বিভিন্ন সার্ভিসের সমন্বয়ে গঠিত service mesh হয়, traces ছাড়া অনুরোধটি অ্যাপ্লিকেশনে যে সম্পূর্ণ "path" অনুসরণ করে তা বোঝা সম্ভব নয়।
 
-Let's explore this with three units of work, represented as [Spans](#spans):
+চলুন তিনটি কাজের ইউনিটের মাধ্যমে এটি অন্বেষণ করি, যেগুলো নিম্নরূপ উপস্থাপিত [Spans](#spans):
 
 {{% alert title="Note" %}}
 
@@ -116,26 +116,17 @@ Let's explore this with three units of work, represented as [Spans](#spans):
 
 OpenTelemetry-এ tracing কীভাবে কাজ করে তা বুঝতে, চলুন আমাদের কোড ইন্সট্রুমেন্টেশনে অংশগ্রহণকারী উপাদানগুলোর তালিকা দেখি।
 
-## Tracer Provider
+## Tracer সরবরাহকারী
 
-A Tracer Provider (sometimes called `TracerProvider`) is a factory for
-`Tracer`s. In most applications, a Tracer Provider is initialized once and its
-lifecycle matches the application's lifecycle. Tracer Provider initialization
-also includes Resource and Exporter initialization. It is typically the first
-step in tracing with OpenTelemetry. In some language SDKs, a global Tracer
-Provider is already initialized for you.
+একটি Tracer সরবরাহকারী (যাকে কখনো কখনো `TracerProvider` বলা হয়) হলো একটি factory যা `Tracer` তৈরি করে। অধিকাংশ অ্যাপ্লিকেশনে, একটি Tracer Provider একবার শুরু করা হয় এবং এর জীবনচক্র অ্যাপ্লিকেশনের জীবনচক্র এর সাথে মেলে। Tracer Provider initialization-এ সম্পদ এবং Exporter initialization ও অন্তর্ভুক্ত থাকে। এটি সাধারণত OpenTelemetry-তে tracing শুরু করার প্রথম ধাপ। কিছু language SDKs-এ একটি সার্বজনীন Tracer Provider ইতিমধ্যেই আপনার জন্য শুরু করা থাকে।
 
 ## Tracer
 
-A Tracer creates spans containing more information about what is happening for a
-given operation, such as a request in a service. Tracers are created from Tracer
-Providers.
+একটি Tracer স্প্যান তৈরি করে যা একটি নির্দিষ্ট operation-এ কী ঘটছে তার আরও তথ্য ধারণ করে, যেমন সার্ভিসে একটি অনুরোধের ক্ষেত্রে। Tracer-গুলো Tracer সরবরাহকারী থেকে তৈরি হয়।
 
-## Trace Exporters
+## Trace এক্সপোর্টারস
 
-Trace Exporters send traces to a consumer. This consumer can be standard output
-for debugging and development-time, the OpenTelemetry Collector, or any open
-source or vendor backend of your choice.
+Trace এক্সপোর্টারস traces-কে গ্রাহক-এর কাছে পাঠায়। এই গ্রাহক হতে পারে স্ট্যান্ডার্ড আউটপুট (ডিবাগিং এবং উন্নয়ন সময়ে), OpenTelemetry Collector, অথবা আপনার পছন্দমতো কোনো ওপেন সোর্স বা ভেন্ডর ব্যাকএন্ড।
 
 ## Context Propagation
 
