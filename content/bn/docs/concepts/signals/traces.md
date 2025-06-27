@@ -12,7 +12,7 @@ cSpell:ignore: Guten
 
 {{% alert title="Note" %}}
 
-নিম্নলিখিত JSON উদাহরণগুলো কোনো নির্দিষ্ট ফরম্যাট উপস্থাপন করে না, বিশেষ করে এগুলো [OTLP/JSON](/docs/specs/otlp/#json-protobuf-encoding)নয়, যা আরও verbose।
+নিম্নলিখিত JSON উদাহরণগুলো কোনো নির্দিষ্ট ফরম্যাট উপস্থাপন করে না, বিশেষ করে এগুলো [OTLP/JSON](/docs/specs/otlp/#json-protobuf-encoding) নয়, যা আরও ভার্বোস।
 
 {{% /alert %}}
 
