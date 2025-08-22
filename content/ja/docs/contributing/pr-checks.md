@@ -3,6 +3,7 @@ title: プルリクエストのチェック
 description: プルリクエストがすべてのチェックをパスする方法学ぶ
 weight: 40
 default_lang_commit: d0a90db560d4f15934bdb43d994eabcfd91c515a
+drifted_from_default: true
 ---
 
 [opentelemetry.io リポジトリ](https://github.com/open-telemetry/opentelemetry.io)に[pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request)（PR）を作成した際に、一連のチェックが実行されます。
@@ -17,7 +18,7 @@ PR のチェックは次のことを検証します。
 もし何らかの PR チェックが失敗していれば、最初にローカルで `npm run fix:all` を実行することで[内容の問題を修正](../pull-requests/#fix-issues)してください。
 
 PRに `/fix:all` というコメントを追加することもできます。
-これにより、OpenTelemetry ボットが代わりにそのコマンドを実行して、PR を更新します。
+これにより、OpenTelemetry ボットがかわりにそのコマンドを実行して、PR を更新します。
 ローカルに変更をプルすることを忘れないでください。
 
 問題が残り続けている場合のみ、以下を読んで様々なチェックの内容と、失敗した状態からの修正する方法を確認してください。

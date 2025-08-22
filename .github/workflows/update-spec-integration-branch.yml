@@ -6,12 +6,15 @@ on:
     - cron: '24 10 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   update-spec-integration-branch:
     runs-on: ubuntu-latest
     if: github.repository == 'open-telemetry/opentelemetry.io'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # this is needed to do the rebase below
           fetch-depth: 0

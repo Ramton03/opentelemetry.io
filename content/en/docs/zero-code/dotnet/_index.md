@@ -43,8 +43,9 @@ CI tests run against the following operating systems:
 - [CentOS Stream 9 x64](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/blob/main/docker/centos-stream9.dockerfile)
 - [macOS Ventura 13 x64](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
 - [Microsoft Windows Server 2022 x64](https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md)
-- [Ubuntu 20.04 LTS x64](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md)
-- Ubuntu 22.04 LTS ARM64
+- [Microsoft Windows Server 2025 x64](https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md)
+- [Ubuntu 22.04 LTS x64](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md)
+- [Ubuntu 22.04 LTS ARM64](https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md)
 
 ## Setup
 
@@ -153,8 +154,9 @@ Register-OpenTelemetryForWindowsService -WindowsServiceName "WindowsServiceName"
 Service after making configuration changes. You can do it by running
 `Restart-Service -Name $WindowsServiceName -Force` in PowerShell. {{% /alert %}}
 
-For .NET Framework applications you can configure the most common `OTEL_`
-settings (like `OTEL_RESOURCE_ATTRIBUTES`) via `appSettings` in `App.config`.
+For .NET Framework applications you can configure
+[the most common `OTEL_` settings](/docs/specs/otel/configuration/sdk-environment-variables/#general-sdk-configuration)
+(like `OTEL_RESOURCE_ATTRIBUTES`) via `appSettings` in `App.config`.
 
 The alternative is to set environment variables for the Windows Service in the
 Windows Registry.
@@ -200,8 +202,9 @@ performs an IIS restart. {{% /alert %}}
 {{% alert title="Note" color="warning" %}} The following instructions apply to
 .NET Framework applications. {{% /alert %}}
 
-For ASP.NET application you can configure the most common `OTEL_` settings (like
-`OTEL_SERVICE_NAME`) via `appSettings` in `Web.config`.
+For ASP.NET applications you can configure
+[the most common `OTEL_` settings](/docs/specs/otel/configuration/sdk-environment-variables/#general-sdk-configuration)
+(like `OTEL_SERVICE_NAME`) via `appSettings` in `Web.config`.
 
 If a service name is not explicitly configured, one will be generated for you.
 If the application is hosted on IIS in .NET Framework this will use
